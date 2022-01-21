@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/todoedit.css}">
+
+<title>Edit To-Do Task Page</title>
+<style>
+	body {
+		background-image: url("https://i.ibb.co/0qP1wLS/wallpaperflare-com-wallpaper.jpg");
+		height: 800px;
+	}
+</style>
+</head>
+<body>
+	<!-- Importing NavBar -->
+	<div th:insert="navbar.html :: navbar"></div>
+
+
+	<div class="mcontainer py-5 px-4">
+
+		<div class="container">
+			<p class="h4 mb-4">TODO-Edit</p>
+			<hr>
+			<form action="#" th:action="@{/todoEditSave}" th:object="${todo}"
+				method="POST">
+				<!-- Add hidden form field to handle update -->
+				<input type="hidden" th:field="*{id}" name="id" /> <label for="exampleInputEmail1">Todo</label><input
+					type="text" th:field="*{todoItem}" name="todoItem"
+					class="form-control mb-2 col-4">
+					<input type="hidden" th:field="*{completed}" name="completed" />
+					<br>
+					<label for="exampleInputEmail1">Description</label>
+					<br>
+					<input type="text"
+					th:field="*{shortdescription}" name="shortdescription"
+					class="form-control mb-2 col-4">
+					<br>
+					<input type="date" th:field="*{date}" name="date" />
+					<br>
+					<input type="hidden" th:field="*{priority}" name="priority" />
+					<br>
+					<br>
+
+
+				<button type="submit" class="btn btn-success mb-2 col-2">update</button>
+			</form>
+			<a th:href="@{/todos}" class="btn btn-warning mb-2 col-2">Back </a>
+		</div>
+	</div>
+	<!-- Importing Footer -->
+	<div th:insert="footer.html :: footer"></div>
+
+
+</body>
+</html>

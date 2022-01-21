@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/todos.css}">
+<title>Todo List</title>
+<style>
+	body {
+		background-image: url("https://i.ibb.co/0qP1wLS/wallpaperflare-com-wallpaper.jpg");
+		height: 800px;
+	}
+</style>
+</head>
+
+<body>
+	<!-- Importing NavBar -->
+	<div th:insert="navbar.html :: navbar"></div>
+	<div class="container py-5 px-4">
+
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<table class="table table-hover">
+					<thead>
+						<tr class="bg bg-light ">
+							<th>To-Do No</th>
+							<!--  	<th scope="col">Task-Id</th>-->
+							<th scope="col">To-Do</th>
+							<th scope="col">Short Description</th>
+							<th scope="col">Date</th>
+							<th scope="col">Priority</th>
+							<th scope="col">Status</th>
+							<th scope="col">Update</th>
+							<th scope="col">Edit</th>
+							<th scope="col">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="todo,  i:  ${todos}">
+							<td th:text="${i.index+1}"></td>
+							<!--<th scope="row" th:text=${todo.id}></th>-->
+							<td th:text=${todo.todoItem}></td>
+							<td th:text=${todo.shortdescription}></td>
+							<td th:text=${todo.date}></td>
+							<td th:text=${todo.priority}></td>
+							<td th:text=${todo.completed}></td>
+							<td>
+								<form th:action="@{/todoUpdate/{id}(id=${todo.id})}"
+									method="POST" enctype="multipart/form-data">
+									<div class="form-group">
+										<button type="submit"
+											class="btn btn-success btn-sm text-white">Update</button>
+									</div>
+								</form>
+							</td>
+							<td>
+								<form th:action="@{/showTodoEdit/{id}(id=${todo.id})}"
+									method="POST">
+									<div class="form-group">
+										<button type="submit"
+											class="btn btn-warning btn-sm text-white">Edit</button>
+									</div>
+								</form>
+							</td>
+							<td>
+								<form th:action="@{/todoDelete/{id}(id=${todo.id})}"
+									method="POST" enctype="multipart/form-data">
+									<div class="form-group">
+										<button type="submit" class="btn btn-danger btn-sm text-white">Delete</button>
+									</div>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="d-flex justify-content-center">
+					<a class="btn btn-info btn-lg text-white" data-toggle="modal"
+						data-target="#viewModal">Add New Task</a>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<!-- View Modal -->
+		<div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">TODO</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form th:action="@{/todoNew}" method="POST"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Todo</label> <input type="text"
+									class="form-control" name="todoItem" required ="required"
+									aria-describedby="emailHelp" placeholder="Enter Todo">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Short Description</label> <input
+									type="text" class="form-control" aria-describedby="emailHelp"
+									required ="required"
+									name="shortdescription" placeholder="Enter Description">
+							</div>
+
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Status</label> <select
+									class="form-control" name="status" required ="required">
+									<option>yes</option>
+									<option>no</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Priority</label> <select
+									class="form-control" name="priority" required ="required">
+									<option>high</option>
+									<option>medium</option>
+									<option>low</option>
+								</select>
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Due-date</label> <input
+									type="date" name="date" placeholder="dd-mm-yyyy" value=""
+									required ="required"
+									min="1997-01-01" max="2030-12-31">
+
+							</div>
+							<br>
+							<button type="button" class="btn btn-warning"
+								data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Add Todo</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<!-- Importing Footer -->
+	<div th:insert="footer.html :: footer"></div>
+
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

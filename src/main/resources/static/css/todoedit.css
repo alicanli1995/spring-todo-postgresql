@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+
+	width: 100%;
+	overflow-x: hidden;
+	background-color: #1de5ff;
+background-size: cover;
+
+}
+.mcontainer{
+	min-height: calc(100vh - 136px);
+}
+
+
+
+footer {
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+}

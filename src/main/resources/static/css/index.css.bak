@@ -1,0 +1,100 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.quote{
+	text-align: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+blockquote{
+	font-size: 1.3em;
+}
+
+blockquote::before{
+	content: "\201C";
+	font-size: 5em;
+	line-height: 1;
+	font-family: Georgia;
+	position: relative;
+    top: 18px;
+    color: yellow;
+    
+}
+
+
+body {
+	width: 100%;
+	overflow-x: hidden;
+background-color: #49cbff;
+
+background-size: cover;
+}
+
+.main-container {
+	min-height: calc(100vh - 136px);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: "image-box"
+						"text-box";
+	row-gap: 10px;
+	column-gap: 10px;
+	
+}
+
+@media screen and (min-width:850px) {
+	.main-container {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "image-box text-box";
+	}
+
+}
+
+
+.image-box {
+	grid-area: image-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.text{
+	  padding: 100px 0;
+}
+
+.image-box img {
+	width: 100%;
+	max-width: 900px;
+}
+
+.text-box {
+	grid-area: text-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+    left: 950px;
+    top: 550px;
+	color:lightslategray;
+	
+}
+
+.button
+{
+    font-size: 13px;
+    color:blue;
+}
+
+
+footer {
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+}

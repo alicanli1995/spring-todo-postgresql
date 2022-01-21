@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+  <title>Home </title>
+  <style>
+    body {
+      background-image: url("https://i.ibb.co/0qP1wLS/wallpaperflare-com-wallpaper.jpg");
+      height: 800px;
+    }
+    button{
+      background: #333333;
+      color:lightslategray;
+      width: 400px;
+      height: 50px;
+      border: 1px solid #333;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+
+<body>
+<!-- Importing NavBar -->
+<div th:insert="navbar.html :: navbar"></div>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <br>
+    <table class="table table-hover">
+    <thead>
+    <tr class="bg bg-light ">
+      <th>To-Do No</th>
+      <!--  	<th scope="col">Task-Id</th>-->
+      <th scope="col">To-Do</th>
+      <th scope="col">Short Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo,  i:  ${todos}">
+      <td th:text="${i.index+1}"></td>
+      <!--<th scope="row" th:text=${todo.id}></th>-->
+      <td th:text=${todo.todoItem}></td>
+      <td th:text=${todo.shortdescription}></td>
+      <td th:text=${todo.date}></td>
+      <td th:text=${todo.priority}></td>
+      <td th:text=${todo.completed}></td>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="main-container container py-30 px-28">
+  <div class="text-box ">
+    <h2 class="text-center ">Welcome to Todo Manager</h2>
+    <div class="mb-5 text-center ">
+      <form th:action="@{/todos}" method="GET"
+            enctype="multipart/form-data">
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-lg text-white">Add/Edit To-Do's</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Importing Footer -->
+<div th:insert="footer.html :: footer"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
