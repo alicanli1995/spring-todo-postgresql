@@ -5,6 +5,8 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 > *Projede kullanılan teknolojiler,*
 
+* Thymeleaf 
+
 * REST
 
 * Spring Boot
