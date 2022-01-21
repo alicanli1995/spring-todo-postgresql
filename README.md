@@ -40,6 +40,7 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 > *Eklenecekler,*
 
+* Integration testleri ve unit testler yazılacak
 * Swagger entegre edilecek
 * Error handling eklenecek
 * Front-end kısmı geliştirilecek
