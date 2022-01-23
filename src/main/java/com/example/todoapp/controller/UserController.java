@@ -8,11 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-<<<<<<< HEAD
 
 import java.util.Optional;
-=======
->>>>>>> 4f3323f26e59ffe7f8a869c55c996292fba5be64
+
 
 @RequiredArgsConstructor
 @Controller

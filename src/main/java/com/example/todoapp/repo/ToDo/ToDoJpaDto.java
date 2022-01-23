@@ -1,8 +1,8 @@
 package com.example.todoapp.repo.ToDo;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 
