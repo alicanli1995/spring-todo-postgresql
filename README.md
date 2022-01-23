@@ -5,6 +5,8 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 > *Projede kullanılan teknolojiler,*
 
+* Thymeleaf 
+
 * REST
 
 * Spring Boot
@@ -35,12 +37,11 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 * Listeyi görüntüleme
 * Kişiye özel liste
 * Spring security ile güvenli ve şifrelenmiş kullanıcı altyapısı
-* (CSS and JS).
-* JSP ile oluşturulmuş header, footer, and navigation bar.
+
 
 > *Eklenecekler,*
 
-* Integration testleri ve unit testler yazılacak
+* Unit testler yazılacak
 * Swagger entegre edilecek
 * Error handling eklenecek
 * Front-end kısmı geliştirilecek

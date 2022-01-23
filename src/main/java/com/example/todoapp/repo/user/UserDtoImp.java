@@ -18,8 +18,12 @@ public class UserDtoImp implements UserDto {
     }
 
     @Override
-    public User saveMember(UserEntity userEntity) {
-        userJpaDto.save(userEntity);
-        return User.convertFromEntity(userEntity);
+    public Long saveMember(UserEntity userEntity) {
+        return userJpaDto.save(userEntity).getId();
+    }
+
+    @Override
+    public UserEntity saveMemberEntities(UserEntity userEntity) {
+        return userJpaDto.save(userEntity);
     }
 }

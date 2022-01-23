@@ -5,5 +5,6 @@ import com.example.todoapp.model.User;
 
 public interface UserDto{
     UserEntity findByMail(String mail);
-    User saveMember(UserEntity userEntity);
+    Long saveMember(UserEntity userEntity);
+    UserEntity saveMemberEntities(UserEntity userEntity);
 }

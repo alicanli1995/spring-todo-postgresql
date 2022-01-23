@@ -14,7 +14,7 @@
     <name>todo-app</name>
     <description>todo-app</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -77,6 +77,11 @@
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -102,7 +107,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>springnative-0.0.1-SNAPSHOT</finalName>
     </build>
 
 </project>
