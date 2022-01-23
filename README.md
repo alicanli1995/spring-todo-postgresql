@@ -41,7 +41,11 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 > *Eklenecekler,*
 
-* Unit testler yazılacak
+* Unit testler yazılacak (Tamamlandı!)
+
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/LJqzxSV/Ads-z.png" alt="Ads-z" border="0" /></a>
+
 * Swagger entegre edilecek
 * Error handling eklenecek
 * Front-end kısmı geliştirilecek
