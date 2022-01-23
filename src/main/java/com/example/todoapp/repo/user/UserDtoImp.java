@@ -27,11 +27,14 @@ public class UserDtoImp implements UserDto {
     @Override
     public UserEntity saveMemberEntities(UserEntity userEntity) {
         return userJpaDto.save(userEntity);
+<<<<<<< HEAD
     }
 
     @Override
     public boolean contains(String mail) {
         Optional<UserEntity> userEntityOptional = Optional.ofNullable(userJpaDto.findByMail(mail));
         return userEntityOptional.isPresent();
+=======
+>>>>>>> 4f3323f26e59ffe7f8a869c55c996292fba5be64
     }
 }

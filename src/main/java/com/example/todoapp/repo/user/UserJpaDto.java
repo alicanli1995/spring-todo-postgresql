@@ -10,4 +10,5 @@ import javax.transaction.Transactional;
 @Transactional
 public interface UserJpaDto extends JpaRepository<UserEntity,Long> {
     UserEntity findByMail(String mail);
+
 }

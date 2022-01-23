@@ -82,6 +82,15 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+>>>>>>> 4f3323f26e59ffe7f8a869c55c996292fba5be64
     </dependencies>
 
     <build>
