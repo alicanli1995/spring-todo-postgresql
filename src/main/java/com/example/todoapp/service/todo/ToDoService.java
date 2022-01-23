@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface ToDoService {
     List<ToDo> findAll();
-    void save(ToDo todo);
+    List<ToDoEntity> findAllEntities();
+    ToDo retrieve(Long id);
+    Long save(ToDo todo);
+    ToDoEntity saveEntity(ToDoEntity todo);
     void update(ToDoEntity todo);
-    List<ToDo> findByMemberId(Long memberId);
     void delete(Long id);
-    ToDoEntity findByIdEntities(long id);
 }

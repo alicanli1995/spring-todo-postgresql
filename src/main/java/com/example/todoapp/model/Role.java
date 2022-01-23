@@ -18,6 +18,7 @@ public class Role {
 
     private ROLE userRole;
 
+
     public static Role convertFromEntity(RoleEntity roleEntity)
     {
         return Role.builder()

@@ -5,6 +5,8 @@ import com.example.todoapp.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 
@@ -18,8 +20,18 @@ public class UserDtoImp implements UserDto {
     }
 
     @Override
-    public User saveMember(UserEntity userEntity) {
-        userJpaDto.save(userEntity);
-        return User.convertFromEntity(userEntity);
+    public Long saveMember(UserEntity userEntity) {
+        return userJpaDto.save(userEntity).getId();
+    }
+
+    @Override
+    public UserEntity saveMemberEntities(UserEntity userEntity) {
+        return userJpaDto.save(userEntity);
+    }
+
+    @Override
+    public boolean contains(String mail) {
+        Optional<UserEntity> userEntityOptional = Optional.ofNullable(userJpaDto.findByMail(mail));
+        return userEntityOptional.isPresent();
     }
 }

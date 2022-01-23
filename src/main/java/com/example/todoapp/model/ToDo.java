@@ -4,6 +4,9 @@ package com.example.todoapp.model;
 import com.example.todoapp.repo.ToDo.ToDoEntity;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 @Getter
 @Setter
 @Builder
@@ -12,7 +15,6 @@ import lombok.*;
 @NoArgsConstructor
 
 public class ToDo {
-
 
     private Long id;
 
@@ -43,6 +45,7 @@ public class ToDo {
 
     public ToDoEntity convertToTODOEntity() {
         ToDoEntity toDoEntity = new ToDoEntity();
+        toDoEntity.setId(getId());
         toDoEntity.setMemberId(getMemberId());
         toDoEntity.setTodoItem(getTodoItem());
         toDoEntity.setCompleted(getCompleted());

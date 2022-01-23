@@ -19,15 +19,29 @@ public class ToDoServiceImpl implements ToDoService {
 
 
     @Override
-    public void save(ToDo todo) {
+    public Long save(ToDo todo) {
         ToDoEntity toDoEntity = todo.convertToTODOEntity();
-        toDoDto.save(toDoEntity);
+        return toDoDto.save(toDoEntity);
     }
+    @Override
+    public ToDoEntity saveEntity(ToDoEntity todo) {
+        return toDoDto.saveEntities(todo);
+    }
+
+    @Override
+    public ToDo retrieve(Long id) {
+        return toDoDto.retrieveToDo(id);
+    }
+
+
+
 
     @Override
     public void update(ToDoEntity todo) {
         ToDoEntity toDo = toDoDto.getByIdEntities(todo.getId());
         toDo.setId(todo.getId());
+        toDo.setCompleted(todo.getCompleted());
+        toDo.setMemberId(todo.getMemberId());
         toDo.setTodoItem(todo.getTodoItem());
         toDo.setPriority(todo.getPriority());
         toDo.setDate(todo.getDate());
@@ -37,19 +51,16 @@ public class ToDoServiceImpl implements ToDoService {
 
 
     @Override
-    public List<ToDo> findByMemberId(Long memberId) {
-        return toDoDto.findAllByMemberId(memberId)
+    public List<ToDo> findAll() {
+        return toDoDto.findAll()
                 .stream()
                 .map(ToDo::convertFromEntity)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<ToDo> findAll() {
-        return toDoDto.findAll()
-                .stream()
-                .map(ToDo::convertFromEntity)
-                .collect(Collectors.toList());
+    public List<ToDoEntity> findAllEntities() {
+        return toDoDto.findAll();
     }
 
 
@@ -58,8 +69,5 @@ public class ToDoServiceImpl implements ToDoService {
         toDoDto.deleteById(id);
     }
 
-    @Override
-    public ToDoEntity findByIdEntities(long id) {
-          return toDoDto.getByIdEntities(id);
-    }
+
 }

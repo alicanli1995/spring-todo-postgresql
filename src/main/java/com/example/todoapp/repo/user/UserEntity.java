@@ -3,8 +3,11 @@ package com.example.todoapp.repo.user;
 
 import com.example.todoapp.repo.role.RoleEntity;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 
@@ -13,6 +16,7 @@ import java.util.Collection;
 
 @Entity(name = "member")
 @Table(name = "member",uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
+@EntityListeners(AuditingEntityListener.class)
 
 
 public class UserEntity {
@@ -23,6 +27,10 @@ public class UserEntity {
     private String firstName;
 
     private String lastName;
+
+    @CreatedDate
+    private LocalDateTime createdDate = LocalDateTime.now();
+
 
     private String mail;
 
