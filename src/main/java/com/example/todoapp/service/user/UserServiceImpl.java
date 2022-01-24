@@ -3,6 +3,7 @@ package com.example.todoapp.service.user;
 import com.example.todoapp.model.User;
 import com.example.todoapp.model.Role;
 import com.example.todoapp.model.enums.ROLE;
+import com.example.todoapp.repo.ToDo.ToDoEntity;
 import com.example.todoapp.repo.role.RoleEntity;
 import com.example.todoapp.repo.user.UserDto;
 import com.example.todoapp.repo.user.UserEntity;

@@ -8,8 +8,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 
 @RequiredArgsConstructor
 @Controller
@@ -22,6 +26,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
+
     @ApiOperation(value = "The method redirect for registration.")
     public String showRegistrationForm(){
         return "registration";

@@ -46,8 +46,9 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/LJqzxSV/Ads-z.png" alt="Ads-z" border="0" /></a>
 
-* Swagger entegre edilecek
-* Error handling eklenecek
+
+* Buglar fixlenecek (Aynı mail ile kayıt olma hatası giderildi.)
+* Swagger entegre edilecek (Swagger eklendi.)
 * Front-end kısmı geliştirilecek
 
 
