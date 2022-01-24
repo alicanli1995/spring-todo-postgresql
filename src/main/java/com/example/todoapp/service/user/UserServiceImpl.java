@@ -27,18 +27,31 @@ public class UserServiceImpl implements UserService{
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public User saveMember(User user) {
+    public Long saveMember(User user) {
         UserEntity userEntity = user.convertToUserEntity();
-        userEntity.setRoles(List.of(new RoleEntity(ROLE.ADMIN)));
+        userEntity.setRoles(Collections.singleton
+                ((Role.builder().userRole(ROLE.USER).build().convertToRoleEntity())));
         userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
-        userDto.saveMember(userEntity);
-        return User.convertFromEntity(userEntity);
+        return userDto.saveMember(userEntity);
+    }
+
+    @Override
+    public UserEntity saveEntities(UserEntity user) {
+        user.setRoles(Collections.singleton
+                ((Role.builder().userRole(ROLE.USER).build().convertToRoleEntity())));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userDto.saveMemberEntities(user);
     }
 
     @Override
     public Long retrieveByMail(String getMemberName) {
         UserEntity user = userDto.findByMail(getMemberName);
         return user.getId();
+    }
+
+    @Override
+    public boolean contains(String mail) {
+        return userDto.contains(mail);
     }
 
     @Override

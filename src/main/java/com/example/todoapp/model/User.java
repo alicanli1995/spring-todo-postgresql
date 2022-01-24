@@ -2,6 +2,9 @@ package com.example.todoapp.model;
 
 import com.example.todoapp.repo.role.RoleEntity;
 import com.example.todoapp.repo.user.UserEntity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.util.Collection;
@@ -12,8 +15,10 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 
+@ApiModel(value = "User Class")
 public class User {
 
+    @ApiModelProperty(name = "Unique field for member class.")
     private Long id;
 
     private String firstName;
@@ -24,15 +29,10 @@ public class User {
 
     private String password;
 
+    @ApiModelProperty(value = "this field is created to associate with Role ")
     private Collection<RoleEntity> roles;
 
-    public User(String firstName, String lastName, String mail, String password, Collection<RoleEntity> roles) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mail = mail;
-        this.password = password;
-        this.roles = roles;
-    }
+
 
     public static User convertFromEntity(UserEntity userEntity)
     {

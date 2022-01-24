@@ -2,6 +2,8 @@ package com.example.todoapp.model;
 
 
 import com.example.todoapp.repo.ToDo.ToDoEntity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Getter
@@ -11,12 +13,15 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
+@ApiModel(value = "ToDo object")
 public class ToDo {
 
-
+    @ApiModelProperty(name = "Unique field for TO-DO class.")
     private Long id;
 
+    @ApiModelProperty(name =  "All to-do tasks has a member.")
     private Long memberId;
+
 
     private String todoItem;
 
@@ -43,6 +48,7 @@ public class ToDo {
 
     public ToDoEntity convertToTODOEntity() {
         ToDoEntity toDoEntity = new ToDoEntity();
+        toDoEntity.setId(getId());
         toDoEntity.setMemberId(getMemberId());
         toDoEntity.setTodoItem(getTodoItem());
         toDoEntity.setCompleted(getCompleted());

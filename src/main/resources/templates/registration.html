@@ -37,13 +37,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <!-- success message -->
-            <div th:if="${param.success}">
-                <br>
-                <br>
-                <div class="alert alert-info">You've successfully registered
-                    to To-Do List Application!</div>
-            </div>
+
             <h1>Registration</h1>
             <form th:action="@{/registration}" method="post" th:object="${user}">
                 <div class ="form-group">
@@ -69,6 +63,22 @@
                         Password
                     </label>
                     <input id ="password" class ="form-control" type = "password" th:field="*{password}" required autofocus="autofocus"/>
+                </div>
+
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">The Mail is received ! Please enter a different email address.</div>
+                </div>
+                <!-- success message -->
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully registered
+                        to To-Do List Application!</div>
+                    <div class="alert alert-success"> Redirect Login Page</div>
+                    <script>
+                        let url = "http://localhost:8080/login";
+                        setTimeout(function(){
+                            location = url;
+                        },5000)
+                    </script>
                 </div>
 
                 <div class="form-group">

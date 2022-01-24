@@ -2,18 +2,20 @@ package com.example.todoapp.repo.role;
 
 import com.example.todoapp.model.enums.ROLE;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Getter
 @Setter
-@NoArgsConstructor
 
 @Entity(name = "role")
 @Table(name = "role")
+@EntityListeners(AuditingEntityListener.class)
 
 public class RoleEntity {
 
@@ -21,12 +23,11 @@ public class RoleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated
+    @Enumerated(value = EnumType.STRING)
     private ROLE roleUser;
 
-    public RoleEntity(ROLE roleUser) {
-        super();
-        this.roleUser = roleUser;
-    }
+    @CreatedDate
+    private LocalDateTime createdDate = LocalDateTime.now();
+
 
 }

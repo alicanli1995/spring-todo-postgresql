@@ -2,8 +2,6 @@ package com.example.todoapp.controller.request;
 
 
 import com.example.todoapp.model.ToDo;
-import com.example.todoapp.model.User;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

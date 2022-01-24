@@ -1,12 +1,16 @@
 package com.example.todoapp.repo.ToDo;
 
 
+import com.example.todoapp.model.ToDo;
+
 import java.util.List;
 
 public interface ToDoDto {
-    void save(ToDoEntity toDoEntity);
+    Long save(ToDoEntity toDoEntity);
+    ToDoEntity saveEntities(ToDoEntity toDoEntity);
     List<ToDoEntity> findAll();
     ToDoEntity getByIdEntities(Long id);
-    List<ToDoEntity> findAllByMemberId(Long memberId);
     void deleteById(Long id);
+    ToDo retrieveToDo(Long l);
+
 }
