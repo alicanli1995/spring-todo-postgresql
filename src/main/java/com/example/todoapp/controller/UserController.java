@@ -22,11 +22,10 @@ import java.util.Optional;
 
 public class UserController {
 
-    @ApiModelProperty(value = "We are ejecting User Services.")
+    @ApiModelProperty(value = "We are enjecting User Services.")
     private final UserService userService;
 
     @GetMapping
-
     @ApiOperation(value = "The method redirect for registration.")
     public String showRegistrationForm(){
         return "registration";
