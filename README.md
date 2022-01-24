@@ -3,7 +3,8 @@
 Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktadır.
 
 Running to-do list app locally
-ToDo app is a Spring Boot application built using Maven. You can build a jar file and run it from the command line (it should work just as well with Java 11 or 17):
+
+*ToDo app is a Spring Boot application built using Maven. You can build a jar file and run it from the command line (it should work just as well with Java 11 or 17):*
 
 ```
 git clone https://github.com/alicanli1995/spring-todo-postgresql.git
