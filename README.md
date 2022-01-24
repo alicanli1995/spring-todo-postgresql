@@ -48,7 +48,7 @@ Bu proje https://spring-todo-postgresql.herokuapp.com/ adresinde yayınlanmaktad
 
 
 * Buglar fixlenecek (Aynı mail ile kayıt olma hatası giderildi.)
-* Swagger entegre edilecek (Swagger eklendi.)
+* Swagger entegre edilecek (Swagger eklendi. -> [Tıklayarak ulaşabilirsiniz.](https://spring-todo-postgresql.herokuapp.com/swagger-ui/index.html)
 * Front-end kısmı geliştirilecek
 
 
